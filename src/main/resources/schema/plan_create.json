@@ -1,0 +1,23 @@
+{
+  "$id": "https://example.com/schema/plan_create.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "title": "Rules",
+  "type": "object",
+  "required": [
+    "is_customize",
+    "is_public"
+  ],
+  "properties": {
+    "is_customize": {
+      "type": "integer",
+      "description": "is customize.",
+      "minimum": 0
+    },
+    "is_public": {
+      "type": "integer",
+      "description": "is public.",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}

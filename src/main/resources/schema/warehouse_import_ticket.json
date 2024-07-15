@@ -1,0 +1,87 @@
+{
+  "$id": "https://consumerapi.ipisaas.com/schema/warehouse_import_ticket.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "title": "Rules",
+  "type": "object",
+  "required": [
+    "warehouseId",
+    "importPerson",
+    "approvedPerson",
+    "warehouseImportTicketItems"
+  ],
+  "properties": {
+    "warehouseId": {
+      "type": "integer",
+      "description": "id warehouse.",
+      "mininum": 0
+    },
+    "importTicketCode": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "import ticket code."
+    },
+    "importType": {
+        "type": "integer",
+        "description": "import type. [0: from company, 1: outside]"
+    },
+    "importPerson": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "import person."
+    },
+    "approvedPerson": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "approved person."
+    },
+    "status": {
+        "type": "integer",
+        "description": "status [0: not approve, 1: active, 2: delete]."
+    },
+    "warehouseImportTicketItems" : {
+        "type": "array",
+            "description": "list of warehouse import ticket items.",
+            "items": {
+                "type": "object",
+                "required" : [
+                    "productId",
+                    "productVariationId",
+                    "unitId",
+                    "sku",
+                    "amount",
+                    "incomePrice"
+                ],
+                "properties": {
+                    "productId": {
+                        "type": "integer",
+                        "description": "id of product."
+                    },
+                    "productVariationId": {
+                        "type": "integer",
+                        "description": "id of product variation."
+                    },
+                    "unitId": {
+                        "type": "integer",
+                        "description": "id of unit."
+                    },
+                    "sku": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "description": "sku of product variation."
+                    },
+                    "amount": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "amount of product variation."
+                    },
+                    "incomePrice": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "income Price of product variation."
+                    }
+                }
+            }
+         }
+  },
+  "additionalProperties": true
+}

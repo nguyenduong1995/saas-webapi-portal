@@ -1,0 +1,50 @@
+{
+  "$id": "https://example.com/schema/customer_registration_create.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "title": "Rules",
+  "type": "object",
+  "required": [
+    "email",
+    "fullname",
+    "company_id",
+    "department_id",
+    "telephone",
+	"captcha"
+  ],
+  "properties": {
+    "fullname": {
+      "type": "string",
+      "description": "Fullname.",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email.",
+      "maxLength": 200
+    },
+    "telephone": {
+      "type": "string",
+      "description": "telephone.",
+      "pattern": "^(03|07|08|09|01[2|6|8|9])+([0-9]{8})$"
+    },
+    "company_id": {
+      "type": "integer",
+      "description": "company id",
+      "minimum": -1
+    },
+    "department_id": {
+      "type": "integer",
+      "description": "department id",
+      "minimum": -1
+    },
+	"captcha": {
+		"type": "string",
+		"description": "captcha",
+		"pattern": "^[0-9a-zA-Z]*$",
+		"maxLength": 5 
+	}
+  },
+  "additionalProperties": true
+}
